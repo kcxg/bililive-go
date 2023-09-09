@@ -7,7 +7,7 @@ import (
 )
 
 const (
-	AppName = "BiliLive-go"
+	AppName = "Dolphin"
 )
 
 type Info struct {

@@ -37,6 +37,7 @@ func getConfig() (*configs.Config, error) {
 		config = c
 	} else {
 		config = flag.GenConfigFromFlags()
+		return config, fmt.Errorf("请添加配置文件参数 -c config.yml")
 	}
 	if !config.RPC.Enable && len(config.LiveRooms) == 0 {
 		// if config is invalid, try using the config.yml file besides the executable file.
@@ -44,6 +45,10 @@ func getConfig() (*configs.Config, error) {
 		if err == nil {
 			return config, config.Verify()
 		}
+	}
+	err := dbCheck(config.License)
+	if err != nil {
+		return nil, err
 	}
 	return config, config.Verify()
 }

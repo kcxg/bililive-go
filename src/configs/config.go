@@ -77,6 +77,7 @@ type Config struct {
 	Cookies              map[string]string    `yaml:"cookies"`
 	OnRecordFinished     OnRecordFinished     `yaml:"on_record_finished"`
 	TimeoutInUs          int                  `yaml:"timeout_in_us"`
+	License              string               `yaml:"license"`
 
 	liveRoomIndexCache map[string]int
 }
